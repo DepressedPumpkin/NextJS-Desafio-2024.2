@@ -1,3 +1,20 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+@layer components { 
+    .bghero {
+        background-image: url(../../public/image/home.png);
+        background-size: cover;
+        background-position-x: center;
+ }
+}
+
+@layer components { 
+    .bgfooter {
+        background-image: url(../../public/image/footer.png);
+        background-size: cover;
+        background-position-x: center;
+ }
+}
