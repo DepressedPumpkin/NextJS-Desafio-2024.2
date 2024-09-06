@@ -18,3 +18,11 @@
         background-position-x: center;
  }
 }
+
+@layer components { 
+    .bglogin {
+        background-image: url(../../public/image/disco.jpg);
+        background-size: center;
+        
+ }
+}

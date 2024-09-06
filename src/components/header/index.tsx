@@ -27,7 +27,7 @@ export default function Header() {
                         <a href="/" className="hover:underline">Início</a>
                         <a href="/contato" className="hover:underline">Contato</a>
                         <a href="/produtos" className="hover:underline">Produtos</a>
-                        <a href="/gerenciamento" className="hover:underline">Gerenciamento</a>
+                        <a href="/admin" className="hover:underline">Gerenciamento</a>
                         <a href="/login" className="hover:underline">Login</a>
                     </div>
 
@@ -39,7 +39,7 @@ export default function Header() {
                             <Link href="/" className="text-verde hover:underline">Início</Link>
                             <Link href="/contato" className="text-verde hover:underline">Contato</Link>
                             <Link href="/produtos" className="text-verde hover:underline">Produtos</Link>
-                            <Link href="/gerenciamento" className="text-verde hover:underline">Gerenciamento</Link>
+                            <Link href="/admin" className="text-verde hover:underline">Gerenciamento</Link>
                             <Link href="/login" className="text-verde hover:underline">Login</Link>
                         </div>
                     ) : null}

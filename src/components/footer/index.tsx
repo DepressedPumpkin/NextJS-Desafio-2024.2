@@ -25,7 +25,7 @@ export default function Footer() {
           </div>
   
       
-          <div className="flex flex-col items-start justify-center items-center">
+          <div className="flex flex-col items-start justify-center">
             <h3 className="text-xl font-semibold mb-4">Redes Sociais</h3>
             <div className="flex space-x-4">
             <Instagram className="w-6 h-6 text-white cursor-pointer" />
