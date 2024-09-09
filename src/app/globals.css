@@ -7,8 +7,16 @@
     .bghero {
         background-image: url(../../public/image/home.png);
         background-size: cover;
-        background-position-x: center;
+        background-position-x: center;        
  }
+ @media screen and (max-width: 768px) {
+    .bghero {
+        background-image: url(../../public/image/home.png);
+        background-size: cover;
+        background-position: 12%;
+    }
+    
+}
 }
 
 @layer components { 

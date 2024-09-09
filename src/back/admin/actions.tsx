@@ -3,7 +3,7 @@
 import prisma from "@/lib/db"
 import { redirect } from "next/navigation"
 
-export async function deleteProduct(id: number) {
+export async function deleteProduct(id: number, closeModal: () => void) {
     const produto = await prisma.product.delete({
         where: {
             id: id
@@ -12,20 +12,15 @@ export async function deleteProduct(id: number) {
     return produto
 }
 
-export async function editProduct(id: number, title: string, price: number, description: string, image: string) {
-    const produto = await prisma.product.update({
-        where: {
-            id: id
+export async function editProduct(id: number, data: {title: string, price: number, description: string, image: string}) {
+    await prisma.product.update({
+        where:{
+            id,
         },
-        data: {
-            title: title,
-            price: price,
-            description: description,
-            image: image
+        data,
+    });
         }
-    })
-    return produto
-}
+   
 
 export async function createProduct(formData: FormData) {
     const title = formData.get('title') as string

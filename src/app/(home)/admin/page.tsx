@@ -1,24 +1,34 @@
-'use server';
+'use client';
 
-import { useState } from 'react';
-import Image from 'next/image';
-import { Eye, Link as Linkk, Square } from 'lucide-react';
-import { Trash2 } from 'lucide-react';
-import { SquarePen } from 'lucide-react';
-import Link from 'next/link';
+import { useState, useEffect } from 'react';
 import Tabela from '@/components/tabela';
-import prisma from '@/lib/db';
 import { Pegaproduto } from '@/back/home/actions';
 
+// Definimos o tipo Produto aqui para reutilização e tipagem consistente
+type Produto = {
+  image: string;
+  title: string;
+  price: number;
+  description: string | null;
+  id: number;
+};
 
-const ITEMS_PER_PAGE = 3; // Número de itens por página
+export default function Gerenciamento() {
+  const [produtos, setProdutos] = useState<Produto[]>([]); // Define o tipo explicitamente
 
-export default async function Gerenciamento() {
- 
-  const produtos = await Pegaproduto()
+  const fetchProdutos = async () => {
+    const fetchedProdutos: Produto[] = await Pegaproduto();
+    setProdutos(fetchedProdutos); // Agora, o tipo é compatível com o estado
+  };
+
+  // Carrega os produtos ao montar o componente
+  useEffect(() => {
+    fetchProdutos();
+  }, []);
+
   return (
     <div className="bg-bege min-h-screen p-10">
-      <Tabela produtos={produtos}/>
+      <Tabela produtos={produtos} reloadProdutos={fetchProdutos} />
     </div>
   );
 }

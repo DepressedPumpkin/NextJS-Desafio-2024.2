@@ -4,8 +4,8 @@ import { CircleUser } from 'lucide-react';
 
 const LoginPage = () => {
   return (
-    <div className="flex h-screen bg-bege">
-      <div className="w-1/2 h-full">
+    <div className="flex h-screen bg-bege justify-center">
+      <div className="w-1/2 h-full hidden md:block">
         <Image
           src="/image/login.png" 
           alt="Discos"
@@ -15,11 +15,11 @@ const LoginPage = () => {
         />
       </div>
 
-      <div className="w-1/2 h-full flex items-center justify-center p-8">
+      <div className="lg:w-1/2 h-full flex items-center justify-center p-8 w-screen">
         <div className="bglogin shadow-lg rounded-lg p-8 max-w-md w-full">
           <div className="flex flex-col items-center mb-8">
             <CircleUser className="text-bege w-40 h-40" />
-            <h2 className="text-3xl font-bold text-center mb-4">DisCode</h2>
+            <h2 className="text-3xl font-bold text-center mb-4 text-bege">DisCode</h2>
           </div>
 
           
@@ -51,7 +51,7 @@ const LoginPage = () => {
             <div className="flex items-center justify-center">
               <button
                 type="submit"
-                className="bg-amarelo text-white font-bold py-2 px-44 rounded-full hover:bg-salmao focus:outline-none focus:shadow-outline"
+                className="bg-amarelo text-white font-bold py-2 w-14 h-14 rounded-full hover:bg-salmao focus:outline-none focus:shadow-outline"
               >
                 Login
               </button>

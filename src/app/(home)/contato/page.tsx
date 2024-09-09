@@ -36,6 +36,7 @@ export default function Contato() {
                         <Instagram className="w-8 h-8 text-verde cursor-pointer"/>
                         <AiOutlineYoutube className="w-10 h-10 text-verde cursor-pointer"/>
                         <FaWhatsapp className="w-8 h-8 text-verde cursor-pointer"/>
+
                     </div>
                 </div>
             </div>
