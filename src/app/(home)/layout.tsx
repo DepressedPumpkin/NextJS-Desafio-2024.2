@@ -25,7 +25,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={Serif.className}>
-      <Header />
+        <Header/>
       {children}
       <Footer />
       </body>

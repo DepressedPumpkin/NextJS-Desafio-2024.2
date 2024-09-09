@@ -1,23 +1,37 @@
 'use client';
 
+import { Search as SearchIcon } from 'lucide-react';
+import { useState } from 'react';
 
-import { Search as SearchIcon} from 'lucide-react';
+type SearchProps = {
+  onSearch: (query: string) => void; // Função de callback para lidar com a pesquisa
+};
 
-export default function Search() {
-    return(
-        <form className="flex basis-full" autoComplete="off">
-            <div className="flex w-full flex-col items-center gap-6 my-10">
-            <div className="relative flexx w-full items-center">
-                    <SearchIcon className="w-7 h-7 absolute text-black/50 left-4"/>
-                    <input
-                    id="search"
-                    name="search"
-                    type="text"
-                    className="w-full rounded-xl px-16 py-6 text-yellow-500 bg-zinc-900 hover:bg-zinc-800 caret-white transition-all duration-300"
-                    placeholder="Pesquisar..."
-                    />
-                </div>
-            </div>
-        </form>
-    )
+export default function Search({ onSearch }: SearchProps) {
+  const [query, setQuery] = useState('');
+
+  const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const value = event.target.value;
+    setQuery(value);
+    onSearch(value); // Passa o valor da pesquisa para o componente pai
+  };
+
+  return (
+    <form className="flex basis-full" autoComplete="off" onSubmit={(e) => e.preventDefault()}>
+      <div className="flex w-full items-center rounded-full border border-verde bg-bege p-2 px-4">
+        {/* Ícone de Pesquisa */}
+        <SearchIcon className="w-5 h-5 text-green-700 mr-2" />
+        {/* Campo de Pesquisa */}
+        <input
+          id="search"
+          name="search"
+          type="text"
+          className="w-full bg-transparent focus:outline-none text-verde placeholder:text-verde"
+          placeholder="Pesquisar"
+          value={query}
+          onChange={handleSearch} // Captura o valor da pesquisa
+        />
+      </div>
+    </form>
+  );
 }

@@ -67,7 +67,7 @@ export default function Tabela({ produtos, reloadProdutos }: Produtos) {
 
   return (
     <div className="max-w-6xl mx-auto">
-      <div className="flex justify-between">
+      <div className="flex justify-between flex-wrap">
         <h1 className="text-3xl font-bold text-[#d56a47] mb-6">Gerenciamento</h1>
         <button onClick={abrirModal} className="bg-[#334d35] text-white px-4 py-2 rounded-md mb-4">
           + Criar Produto
@@ -121,11 +121,11 @@ export default function Tabela({ produtos, reloadProdutos }: Produtos) {
 
       {/* Paginação */}
       <div className="flex justify-center mt-6 space-x-4">
-        <button className={`text-[#334d35] ${paginaAtual === 1 ? 'opacity-50' : ''}`} onClick={() => mudarPagina(paginaAtual - 1)} disabled={paginaAtual === 1}>
+        <button className={`text-[#334d35] ${paginaAtual === 1 ? 'opacity-50 ' : ''}`} onClick={() => mudarPagina(paginaAtual - 1)} disabled={paginaAtual === 1}>
           &lt;
         </button>
         {Array.from({ length: totalPaginas }, (_, index) => (
-          <button key={index} className={`text-[#334d35] ${paginaAtual === index + 1 ? 'font-bold' : ''}`} onClick={() => mudarPagina(index + 1)}>
+          <button key={index} className={`text-[#334d35] ${paginaAtual === index + 1 ? 'font-bold underline' : ''}`} onClick={() => mudarPagina(index + 1)}>
             {index + 1}
           </button>
         ))}
