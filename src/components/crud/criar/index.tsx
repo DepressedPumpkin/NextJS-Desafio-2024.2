@@ -1,4 +1,5 @@
 import { createProduct } from "@/back/admin/actions";
+import Image from "next/image";
 
 export default function Criar({ abrirModal }: { abrirModal: () => void }) {
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -14,7 +15,7 @@ export default function Criar({ abrirModal }: { abrirModal: () => void }) {
           <h2 className="text-2xl font-semibold text-center mb-6 text-verde">Criar</h2>
 
           <div className="flex justify-center mb-6">
-            <img src="/image/mfdoom.png" alt="Imagem do produto" className="rounded" />
+            <Image width={500} height={500} src="/image/mfdoom.png" alt="Imagem do produto" className="rounded" />
           </div>
 
           <form onSubmit={handleSubmit}>

@@ -2,6 +2,7 @@
 
 import { editProduct } from "@/back/admin/actions";
 import { Product } from "@prisma/client";
+import Image from "next/image";
 import { useState } from "react";
 
 type EditProps = {
@@ -64,7 +65,9 @@ export default function Edit({produto, closeModal}: EditProps) {
                 <h2 className="text-2xl font-semibold text-center mb-6 text-amarelo">Editar</h2>
 
                 <div className="flex justify-center mb-6">
-                    <img
+                    <Image
+                        width={500}
+                        height={500}
                         src="/image/mfdoom.png"
                         alt="Imagem do produto"
                         className="rounded" />

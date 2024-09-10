@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from "react";
+import { Suspense, useState } from "react";
 import { Search as SearchIcon, X as CloseIcon, Menu } from 'lucide-react';
 import Link from "next/link";
 import { useRouter } from 'next/navigation'; 
@@ -30,7 +30,9 @@ export default function Header() {
           {/* Barra de Pesquisa Funcional */}
           <div className="flex w-full justify-start items-start">
             <div className=" rounded-lg flex items-center p-1 self-start w-1/3">
+            <Suspense> 
               <Search onSearch={handleSearch} /> {/* Componente de pesquisa funcional */}
+              </Suspense>
             </div>
           </div>
           {/* Links de Navegação */}

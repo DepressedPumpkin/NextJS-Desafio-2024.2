@@ -2,6 +2,7 @@
 
 import { Youtube } from 'lucide-react';
 import { Instagram } from 'lucide-react';
+import Image from 'next/image';
 import { FaWhatsapp } from "react-icons/fa";
 
 
@@ -10,7 +11,9 @@ export default function Footer() {
     <footer className="bgfooter py-12 text-white">
       <div className="container mx-auto px-4 flex justify-between items-start flex-col md:flex-row gap-4 md:gap-0">
         <div className="flex flex-col items-start">
-          <img
+          <Image
+            width={500}
+            height={500}
             src="/logo/logo.png"
             alt="Logo DisCode"
             className=" w-3/4 h-3/4 mb-4" />
