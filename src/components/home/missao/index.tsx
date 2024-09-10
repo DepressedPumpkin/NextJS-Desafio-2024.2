@@ -34,7 +34,7 @@ export default function Missao() {
         <div className="flex flex-wrap w-full justify-center pb-16 gap-6">
             {
                 cards.map((card,index) => (
-                <div className="bg-verde flex flex-col items-center text-xl text-bege w-72 py-6 gap-6 rounded-lg px-6"> 
+                <div key={index} className="bg-verde flex flex-col items-center text-xl text-bege w-72 py-6 gap-6 rounded-lg px-6"> 
                 <h1 className="">
                     {card.title}
                 </h1>
