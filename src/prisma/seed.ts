@@ -186,7 +186,7 @@ async function main() {
     createdAt: new Date(),
     image: "/image/bocchi.jpg",
   },
-
+  
 ];
 
   
