@@ -5,7 +5,7 @@ import { Product } from "@prisma/client";
 import { useState } from "react";
 
 type EditProps = {
-    produto: Product;
+    produto: product;
     closeModal: () => void;
 }
 
@@ -13,6 +13,13 @@ interface FormDataType {
     title: string;
     price: number;
     description: string;
+}
+
+type product = {
+    id: number;
+    title: string;
+    price: number;
+    description: string | null;
     image: string;
 }
 
@@ -44,7 +51,6 @@ export default function Edit({produto, closeModal}: EditProps) {
             title: formData.get('title') as string,
             price: Number(formData.get('price')), // Converte para número
             description: formData.get('description') as string,
-            image: formData.get('image') as string,
         };
         
         // Chama a função updateMember com os dados do formulário

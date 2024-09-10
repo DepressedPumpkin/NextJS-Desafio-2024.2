@@ -61,7 +61,7 @@ export default function Products({ produtos, title }: Produtos) {
 
       <div className="flex flex-wrap gap-8 justify-center max-w-max">
         {produtosExibidos.map((produto, index) => (
-          <Cards key={index} image={produto.image} title={produto.title} price={produto.price} />
+          <Cards id={produto.id} key={index} image={produto.image} title={produto.title} price={produto.price} />
         ))}
       </div>
 

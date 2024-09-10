@@ -1,12 +1,14 @@
 import Image from "next/image"
+import Link from "next/link";
 
 type CardsProps = {
     title: string
     price: number;
     image: string;
+    id: number;
 }
 
-export default function Cards ({title, price, image}: CardsProps ) {
+export default function Cards ({title, price, image, id}: CardsProps ) {
     return (
         <div className="bg-[#E0DDCB] shadow-md rounded-lg py-4 px-3 flex flex-col items-center text-center w-80 min-h-96 justify-between">
             <Image
@@ -19,7 +21,9 @@ export default function Cards ({title, price, image}: CardsProps ) {
                 <h1 className="text-center text-xl xl:text-2xl 2xl:text-3xl 3xl:text-4xl text-verde font-semibold cursor-default">{title}</h1>
                 <div className="flex flex-row justify-center text-center items-center gap-32 pt-4">
                 <p className="text-verde font-semibold text-xl">R$ {price}</p>
-                <button className="bg-amarelo text-white px-1 py-1 rounded-full hover:bg-verde transition-colors">Ver mais</button>
+                <Link href={`/produtos/${id}`} className="bg-amarelo text-white px-1 py-1 rounded-full hover:bg-verde transition-colors">Ver mais
+
+                </Link>
                 </div>
         </div>
     )

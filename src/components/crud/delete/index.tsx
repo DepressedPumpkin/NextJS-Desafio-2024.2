@@ -8,7 +8,7 @@ type DeleteProps = {
 }
 
 function deleteproduto(id: number, closeModal: () => void) {
-    deleteProduct(id, closeModal);
+    deleteProduct(id);
     closeModal();
 }
 
@@ -23,10 +23,10 @@ export default function Delete({id, closeModal}: DeleteProps) {
                 Essa ação não poderá ser desfeita.
             </p>
             <div className="flex justify-center gap-4">
-                <button onClick={() => deleteProduct(id, closeModal)}  className="border border-gray-300 rounded-md px-4 py-2 text-gray-700 hover:bg-gray-100">
+                <button onClick={() => closeModal()}  className="border border-gray-300 rounded-md px-4 py-2 text-gray-700 hover:bg-gray-100">
                     Não, cancelar
                 </button>
-                <button  onClick={() => deleteProduct(id, closeModal)} className="bg-red-500 text-white rounded-md px-4 py-2 hover:bg-red-600">
+                <button  onClick={() => deleteproduto(id, closeModal)} className="bg-red-500 text-white rounded-md px-4 py-2 hover:bg-red-600">
                     Sim, excluir
                 </button>
             </div>

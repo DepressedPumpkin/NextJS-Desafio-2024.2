@@ -1,5 +1,3 @@
-'use client';
-
 import { Eye, Trash2, SquarePen } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -29,22 +27,22 @@ export default function Tabela({ produtos, reloadProdutos }: Produtos) {
   };
 
   const [produtoToDelete, setprodutoToDelete] = useState<Produto>();
-    const [produtoToUpdate, setprodutoToUpdate] = useState<Produto>();
-    const [modal, setModal] = useState('');
+  const [produtoToUpdate, setprodutoToUpdate] = useState<Produto>();
+  const [modal, setModal] = useState('');
 
-    const openModal = (modal: string) => {
-        setModal(modal);
-    }
+  const openModal = (modal: string) => {
+    setModal(modal);
+  };
 
-    const deleteproduto = (produto: Produto) => {
-        setprodutoToDelete(produto);
-        openModal('delete');
-    }
+  const deleteproduto = (produto: Produto) => {
+    setprodutoToDelete(produto);
+    openModal('delete');
+  };
 
-    const editproduto = (produto: Produto) => {
-        setprodutoToUpdate(produto);
-        openModal('edit');
-    }
+  const editproduto = (produto: Produto) => {
+    setprodutoToUpdate(produto);
+    openModal('edit');
+  };
 
   const ITEMS_PER_PAGE = 8; // Número de itens por página
 
@@ -63,6 +61,12 @@ export default function Tabela({ produtos, reloadProdutos }: Produtos) {
     if (novaPagina >= 1 && novaPagina <= totalPaginas) {
       setPaginaAtual(novaPagina);
     }
+  };
+
+  // Função para limitar o tamanho da descrição
+  const resumoDescricao = (descricao: string | null) => {
+    if (!descricao) return "";
+    return descricao.length > 50 ? descricao.slice(0, 50) + "..." : descricao;
   };
 
   return (
@@ -93,43 +97,55 @@ export default function Tabela({ produtos, reloadProdutos }: Produtos) {
                   <span className="text-[#d56a47]">{produto.title}</span>
                 </td>
                 <td className="hidden tb:table-cell px-4 py-2">{produto.price}</td>
-                <td className="hidden tb:table-cell px-4 py-2">{produto.description}</td>
+                <td className="hidden tb:table-cell px-4 py-2">{resumoDescricao(produto.description)}</td>
                 <td className="px-4 py-2 table-cell space-x-2 gap-2">
                   <Link href={`/produtos/${produto.id}`}>
                     <button className="text-[#000000] pl-2">
                       <Eye />
                     </button>
                   </Link>
-                    <button onClick = {()=>deleteproduto(produto)} className="text-[#A30D11]">
-                      <Trash2 />
-                    </button>
-                    <button onClick = {()=>editproduto(produto)} className="text-[#355852]">
-                      <SquarePen />
-                    </button>
+                  <button onClick={() => deleteproduto(produto)} className="text-[#A30D11]">
+                    <Trash2 />
+                  </button>
+                  <button onClick={() => editproduto(produto)} className="text-[#355852]">
+                    <SquarePen />
+                  </button>
                 </td>
               </tr>
             ))}
           </tbody>
         </table>
         {modal === 'delete' && produtoToDelete && (
-                <Delete id={produtoToDelete.id} closeModal={() => openModal('')} />
-            )}
-            {modal === 'edit' && produtoToUpdate && (
-                <Edit produto ={produtoToUpdate} closeModal={() => openModal('')} />
-            )}
+          <Delete id={produtoToDelete.id} closeModal={() => openModal('')} />
+        )}
+        {modal === 'edit' && produtoToUpdate && (
+          <Edit produto={produtoToUpdate} closeModal={() => openModal('')} />
+        )}
       </div>
 
       {/* Paginação */}
       <div className="flex justify-center mt-6 space-x-4">
-        <button className={`text-[#334d35] ${paginaAtual === 1 ? 'opacity-50 ' : ''}`} onClick={() => mudarPagina(paginaAtual - 1)} disabled={paginaAtual === 1}>
+        <button
+          className={`text-[#334d35] ${paginaAtual === 1 ? 'opacity-50 ' : ''}`}
+          onClick={() => mudarPagina(paginaAtual - 1)}
+          disabled={paginaAtual === 1}
+        >
           &lt;
         </button>
         {Array.from({ length: totalPaginas }, (_, index) => (
-          <button key={index} className={`text-[#334d35] ${paginaAtual === index + 1 ? 'font-bold underline' : ''}`} onClick={() => mudarPagina(index + 1)}>
+          <button
+            key={index}
+            className={`text-[#334d35] ${paginaAtual === index + 1 ? 'font-bold underline' : ''}`}
+            onClick={() => mudarPagina(index + 1)}
+          >
             {index + 1}
           </button>
         ))}
-        <button className={`text-[#334d35] ${paginaAtual === totalPaginas ? 'opacity-50' : ''}`} onClick={() => mudarPagina(paginaAtual + 1)} disabled={paginaAtual === totalPaginas}>
+        <button
+          className={`text-[#334d35] ${paginaAtual === totalPaginas ? 'opacity-50' : ''}`}
+          onClick={() => mudarPagina(paginaAtual + 1)}
+          disabled={paginaAtual === totalPaginas}
+        >
           &gt;
         </button>
       </div>

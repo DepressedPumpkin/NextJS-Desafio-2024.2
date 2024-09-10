@@ -1,24 +1,26 @@
 'use server'
 
 import prisma from "@/lib/db"
+import { revalidatePath } from "next/cache"
 import { redirect } from "next/navigation"
 
-export async function deleteProduct(id: number, closeModal: () => void) {
+export async function deleteProduct(id: number) {
     const produto = await prisma.product.delete({
         where: {
             id: id
         }
     })
-    return produto
+    redirect('/admin')
 }
 
-export async function editProduct(id: number, data: {title: string, price: number, description: string, image: string}) {
+export async function editProduct(id: number, data: {title: string, price: number, description: string}) {
     await prisma.product.update({
         where:{
             id,
         },
         data,
     });
+    redirect('/admin')
         }
    
 
@@ -39,7 +41,7 @@ export async function createProduct(formData: FormData) {
     redirect('/admin')
 }
 
-    export async function visualizaProduto(id: number) {
+ export async function visualizaProduto(id: number) {
         const produto = await prisma.product.findUnique({
             where: {
                 id: id

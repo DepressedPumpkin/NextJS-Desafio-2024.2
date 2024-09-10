@@ -10,7 +10,7 @@ import { FaWhatsapp } from "react-icons/fa";
 
 export default function Contato() {
     return (
-        <div className="flex flex-col items-center text-center bg-[#f9f5ee] text-[#334d35] p-10">
+        <div className="flex flex-col items-center text-center bg-[#f9f5ee] text-[#334d35] p-10 min-h-screen">
             <h1 className="text-4xl font-semibold mb-6">Entre em Contato Conosco</h1>
             <p className="text-lg mb-10">
                 Estamos aqui para atendê-lo, se tiver dúvidas, sugestões ou precisa de assistência,

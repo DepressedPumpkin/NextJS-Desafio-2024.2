@@ -20,7 +20,7 @@ export default function Search({ onSearch }: SearchProps) {
     <form className="flex basis-full" autoComplete="off" onSubmit={(e) => e.preventDefault()}>
       <div className="flex w-full items-center rounded-full border border-verde bg-bege p-2 px-4">
         {/* Ícone de Pesquisa */}
-        <SearchIcon className="w-5 h-5 text-green-700 mr-2" />
+        <SearchIcon className="w-5 h-5 text-verde mr-2" />
         {/* Campo de Pesquisa */}
         <input
           id="search"
