@@ -4,8 +4,6 @@ import Image from "next/image";
 import HeroSection from "@/components/home/herosection";
 import Products from "@/components/home/Products";
 import Cards from "@/components/home/Products/cards";
-import { useRouter, useSearchParams } from "next/navigation";
-import { useEffect, useRef } from "react";
 import { Pegaproduto } from "@/back/home/actions";
 
 export default async function Home() {
