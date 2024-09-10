@@ -4,8 +4,8 @@ import Image from "next/image";
 export default function Criar({ abrirModal }: { abrirModal: () => void }) {
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    await createProduct(new FormData(event.currentTarget)); // Envia os dados para criar o produto
-    abrirModal(); // Fecha o modal após criar o produto
+    await createProduct(new FormData(event.currentTarget)); 
+    abrirModal(); 
   };
 
   return (

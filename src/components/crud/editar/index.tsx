@@ -28,7 +28,7 @@ export default function Edit({produto, closeModal}: EditProps) {
 
     const [formData, setFormData] = useState({
         title: produto.title || '',
-        price: produto.price.toString() || '', // Converte para string para o campo de input
+        price: produto.price.toString() || '', 
         description: produto.description || '',
         image: produto.image || '',
     });
@@ -42,19 +42,17 @@ export default function Edit({produto, closeModal}: EditProps) {
     };
 
     function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
-        event.preventDefault(); // Impede o comportamento padrão do formulário
+        event.preventDefault(); 
         
         const form = event.target as HTMLFormElement;
         const formData = new FormData(form);
     
-        // Converte FormData em um objeto do tipo esperado, certificando-se de que 'price' seja um número
         const data: FormDataType = {
             title: formData.get('title') as string,
-            price: Number(formData.get('price')), // Converte para número
+            price: Number(formData.get('price')), 
             description: formData.get('description') as string,
         };
         
-        // Chama a função updateMember com os dados do formulário
         editProduct(produto.id, data);
         closeModal();
     }    

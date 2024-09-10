@@ -4,7 +4,6 @@ import { useState, useEffect } from 'react';
 import Tabela from '@/components/tabela';
 import { Pegaproduto } from '@/back/home/actions';
 
-// Definimos o tipo Produto aqui para reutilização e tipagem consistente
 type Produto = {
   image: string;
   title: string;
@@ -14,14 +13,13 @@ type Produto = {
 };
 
 export default function Gerenciamento() {
-  const [produtos, setProdutos] = useState<Produto[]>([]); // Define o tipo explicitamente
-
+  const [produtos, setProdutos] = useState<Produto[]>([]); 
   const fetchProdutos = async () => {
     const fetchedProdutos: Produto[] = await Pegaproduto();
-    setProdutos(fetchedProdutos); // Agora, o tipo é compatível com o estado
+    setProdutos(fetchedProdutos); 
   };
 
-  // Carrega os produtos ao montar o componente
+  
   useEffect(() => {
     fetchProdutos();
   }, []);

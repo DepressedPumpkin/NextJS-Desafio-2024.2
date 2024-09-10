@@ -1,9 +1,9 @@
 'use client';
 
 import { useState, useEffect } from "react";
-import { useSearchParams } from 'next/navigation'; // Para lidar com os parâmetros de pesquisa
+import { useSearchParams } from 'next/navigation'; 
 import Cards from "./cards";
-import Search from "@/components/search"; // Componente de busca
+import Search from "@/components/search"; 
 
 type Produto = {
   image: string;
@@ -20,29 +20,25 @@ type Produtos = {
 
 export default function Products({ produtos, title }: Produtos) {
   const ITEMS_PER_PAGE = 8;
-  const searchParams = useSearchParams(); // Pega parâmetros da URL
+  const searchParams = useSearchParams(); 
   const [paginaAtual, setPaginaAtual] = useState(1);
-  const [searchQuery, setSearchQuery] = useState('');  // Estado para o valor da pesquisa
+  const [searchQuery, setSearchQuery] = useState('');  
 
   useEffect(() => {
-    // Atualiza o termo de pesquisa com base no parâmetro da URL
     const search = searchParams.get('search') || '';
     setSearchQuery(search);
   }, [searchParams]);
 
-  // Filtra produtos com base no termo de busca
   const produtosFiltrados = produtos.filter((produto) =>
     produto.title.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
-  // Calcular índices para determinar os produtos a serem exibidos
   const indexInicial = (paginaAtual - 1) * ITEMS_PER_PAGE;
   const indexFinal = indexInicial + ITEMS_PER_PAGE;
 
-  // Produtos exibidos na página atual (filtrados)
   const produtosExibidos = produtosFiltrados.slice(indexInicial, indexFinal);
 
-  // Número total de páginas baseado nos produtos filtrados
+
   const totalPaginas = Math.ceil(produtosFiltrados.length / ITEMS_PER_PAGE);
 
   // Função para mudar de página

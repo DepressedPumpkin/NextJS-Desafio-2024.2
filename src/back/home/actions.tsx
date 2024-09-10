@@ -17,9 +17,7 @@ export async function Pegaproduto() {
 }
 
 export async function Pega4produto() {
-
-    const produtos = await prisma.product.findMany({
-        take: 4,
+    const todosProdutos = await prisma.product.findMany({
         select: {
             title: true,
             price: true,
@@ -27,8 +25,11 @@ export async function Pega4produto() {
             image: true,
             id: true
         }
+    });
 
-    })
-    return produtos
+    const produtosEmbaralhados = todosProdutos.sort(() => Math.random() - 0.5);
+
+    const produtosAleatorios = produtosEmbaralhados.slice(0, 4);
+
+    return produtosAleatorios;
 }
-

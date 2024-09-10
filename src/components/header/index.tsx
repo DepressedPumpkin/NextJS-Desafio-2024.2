@@ -13,12 +13,10 @@ export default function Header() {
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
-  // Função para lidar com a pesquisa e redirecionar para a página de produtos
   const handleSearch = (query: string) => {
     setSearchQuery(query);
-    // Atualiza a URL com o termo de pesquisa sem recarregar a página
     if (query.trim()) {
-      router.push(`/produtos?search=${encodeURIComponent(query.trim())}`); // Fixed with quotes
+      router.push(`/produtos?search=${encodeURIComponent(query.trim())}`); 
     }
   };
 

@@ -4,7 +4,7 @@ import { Search as SearchIcon } from 'lucide-react';
 import { useState } from 'react';
 
 type SearchProps = {
-  onSearch: (query: string) => void; // Função de callback para lidar com a pesquisa
+  onSearch: (query: string) => void; 
 };
 
 export default function Search({ onSearch }: SearchProps) {
@@ -13,7 +13,7 @@ export default function Search({ onSearch }: SearchProps) {
   const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value;
     setQuery(value);
-    onSearch(value); // Passa o valor da pesquisa para o componente pai
+    onSearch(value); 
   };
 
   return (
@@ -29,7 +29,7 @@ export default function Search({ onSearch }: SearchProps) {
           className="w-full bg-transparent focus:outline-none text-verde placeholder:text-verde"
           placeholder="Pesquisar"
           value={query}
-          onChange={handleSearch} // Captura o valor da pesquisa
+          onChange={handleSearch} 
         />
       </div>
     </form>

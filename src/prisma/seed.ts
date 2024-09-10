@@ -186,7 +186,58 @@ async function main() {
     createdAt: new Date(),
     image: "/image/bocchi.jpg",
   },
+  {
+    title: 'Bon Iver - Restacks',
+    description: 'Lançado em 2009 como parte do álbum "For Emma, Forever Ago", "Restacks" é uma coleção de faixas bônus de Bon Iver. O álbum é conhecido por seu som introspectivo e atmosférico, com faixas como "Woods" e "Blood Bank", que destacam a habilidade de Justin Vernon em criar uma atmosfera melancólica e envolvente.',
+    price: 79.99,
+    createdAt: new Date(),
+    image: "/image/restacks.jpg",
+  },
+  {
+    title: 'Jaden - SYRE',
+    description: 'Lançado em 2017, "SYRE" é o álbum de estreia de Jaden Smith. Misturando elementos de hip-hop, R&B e indie, o álbum apresenta faixas como "Icon" e "Fallen". A obra é conhecida por suas letras introspectivas e produção inovadora.',
+    price: 79.99,
+    createdAt: new Date(),
+    image: "/image/syre.jpg",
+  },
   
+  {
+    title: 'Epic - The Wisdom Saga',
+    description: 'Lançado em 2020, "The Wisdom Saga" de Epic combina elementos de rock progressivo e metal sinfônico. Com faixas como "Eternal Quest" e "Rise of the Ancients", o álbum é celebrado por suas complexas composições e narrativa épica.',
+    price: 89.99,
+    createdAt: new Date(),
+    image: "/image/epic.png",
+  },
+  
+  {
+    title: 'Attack on Titan Season 3 Soundtrack',
+    description: 'O álbum da terceira temporada de "Attack on Titan" captura a intensidade e drama da série com uma trilha sonora orquestral poderosa. Inclui faixas como "AOT Opening Theme" e "Final Battle", conhecido por sua capacidade de intensificar a emoção das cenas.',
+    price: 79.99,
+    createdAt: new Date(),
+    image: "/image/aot.jpg",
+  },
+  {
+    title: 'Eagles - Hotel California',
+    description: 'Lançado em 1976, "Hotel California" dos Eagles é um clássico do rock. Com faixas icônicas como "Hotel California" e "New Kid in Town", o álbum é renomado por suas melodias envolventes e solos de guitarra memoráveis.',
+    price: 89.99,
+    createdAt: new Date(),
+    image: "/image/eagles.png",
+  },
+  
+  {
+    title: 'MF DOOM - MM.. FOOD',
+    description: 'O álbum "MM.. FOOD", lançado em 2004, é um dos trabalhos mais icônicos de MF DOOM. Conhecido por suas letras complexas e produção única, o álbum inclui faixas como "Rapp Snitch Knishes" e "Beef Rapp". É amplamente aclamado por sua originalidade e criatividade.',
+    price: 79.99,
+    createdAt: new Date(),
+    image: "/image/mfdoom.png",
+  },    
+  {
+    title: 'Cö shu Nie - Pure',
+    description: 'Lançado em 2021, "Pure" é o álbum da banda japonesa Cö shu Nie. Com uma fusão de rock alternativo e pop, o álbum apresenta faixas como "Asphyxia" e "Kimi wa Nashi de", destacando a habilidade da banda em combinar melodias cativantes com letras profundas e emotivas. O trabalho é celebrado por sua produção sofisticada e pela energia contagiante das suas músicas.',
+    price: 79.99,
+    createdAt: new Date(),
+    image: "/image/cho.jpg",
+  }
 ];
 
   
